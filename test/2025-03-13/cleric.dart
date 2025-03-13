@@ -12,7 +12,5 @@ void main() {
     expect(cleric.mp, greaterThanOrEqualTo(3));
     expect(cleric.mp, lessThanOrEqualTo(10));
 
-
-
   });
 }
