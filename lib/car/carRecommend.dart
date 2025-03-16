@@ -22,6 +22,21 @@ enum CarOption{
   AllWheelDrive
 }
 
+extension CarOptionPrice on CarOption {
+  int get price {
+    return switch (this) {
+      CarOption.Navigation => 200000,
+      CarOption.Sunroof => 150000,
+      CarOption.LeatherSeats => 250000,
+      CarOption.BackupCamera => 100000,
+      CarOption.HeatedSeats => 120000,
+      CarOption.Bluetooth => 80000,
+      CarOption.AndroidAuto => 90000,
+      CarOption.AllWheelDrive => 300000
+    };
+  }
+}
+
 
 class CarRecommend {
 
@@ -44,12 +59,6 @@ class CarRecommend {
   }) : options = options ?? [];
 
 
-  // void addOption(CarOption option) {
-  //   if (!options.contains(option)) {
-  //     options = [...options, option];
-  //   }
-  // }
-
 
   static final List<CarRecommend> carDatabase = [
     CarRecommend(brand: CarBrand.Hyundai, model: "Sonata", year: 2018, price: 20000, mileage: 50000, options: [CarOption.Navigation]),
@@ -65,17 +74,23 @@ class CarRecommend {
   ];
 
 
-  static List<String> findMatchCars(int maxPrice, int minYear, int maxMileage, CarOption options) {
+  static List<String> findMatchCars(int maxPrice, int minYear, int maxMileage, [List<CarOption>? options]) {
     return carDatabase.where((car) {
-      bool isPriceMatch = car.price <= maxPrice;
-      bool isYearMatch = car.year >= minYear;
-      bool isMileageMatch = car.mileage <= maxMileage;
-
-      return isPriceMatch && isYearMatch && isMileageMatch;
+      return car.price <= maxPrice &&
+             car.year >= minYear &&
+             car.mileage <= maxMileage &&
+             (options == null || options.isEmpty || options.every(car.options.contains));
     }).map((car) {
-      bool hasOption = car.options.contains(options);
-      return "${car.brand} ${car.model} (${car.year}) - ${hasOption ? '옵션이 있습니다' : '옵션이 없습니다'}";
+      return "${car.brand} ${car.model} (${car.year}) - ${car.options.isNotEmpty ? '옵션이 있습니다' : '옵션이 없습니다'}";
     }).toList();
   }
+
+  // static List<String> chooseOptionForCar(){
+  //
+  // }
+
+
+
+
 
 }
