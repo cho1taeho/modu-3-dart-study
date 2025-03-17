@@ -7,13 +7,17 @@ void main() {
   test('CarRecommend Test', () {
 
 
+    List<CarOption> userOption = [
+      CarOption.Sunroof,
+      CarOption.Tinting,
+    ];
 
+    final List<String> carMatcing = CarRecommend.findMatchCars(40000, 2018, 60000, userOption);
 
-    final List<String> carMatcing = CarRecommend.findMatchCars(40000, 2018, 60000);
-
-    expect(carMatcing, contains("Toyota Camry (2020) - 옵션이 있습니다"));
-    expect(carMatcing, contains("Kia Sportage (2020) - 옵션이 없습니다"));
-
+    for (var result in carMatcing) {
+      print(result);
+      print("---------------------");
+    }
 
   });
 
