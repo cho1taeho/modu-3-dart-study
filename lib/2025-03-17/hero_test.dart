@@ -1,6 +1,6 @@
 void main() {
   Hero2 hero2 = Hero2(name: 'name', healPoint : 100);
-  // 같은파일이라 보임 다른파일이면 안보임
+  // getter 와 setter를 통해 접근
   hero2._hp = 40;
 
 }

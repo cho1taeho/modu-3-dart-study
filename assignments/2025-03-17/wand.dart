@@ -81,8 +81,8 @@ class Wizard {
   set hp(int value) {
     if (value < 0) {
       value = 0;
-      _hp = value;
     }
+    _hp = value;
   }
   set wand(Wand? value) {
     if (value == null) {
@@ -135,7 +135,7 @@ void test3() {
   ];
   //List에 담긴 모든 Person 인스턴스의 이름을 표시하시오.
   for (Person name in persons) {
-    print('$name');
+    print('${name._name}');
   }
 }
 
