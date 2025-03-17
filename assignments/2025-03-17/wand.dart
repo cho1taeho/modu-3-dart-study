@@ -10,7 +10,7 @@ class Wand {
     if (name.length < 3) {
       throw Exception('이름은 3문자 이상이어야 한다');
     }
-    if (0.5 > power || power < 100) {
+    if (0.5 > power || power > 100) {
       throw Exception('마력은 0.5이상 100이하여야 한다');
     }
   }
