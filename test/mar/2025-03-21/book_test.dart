@@ -54,20 +54,20 @@ void main() {
     List<Book> hp = <Book>[book, book2, book3, book4, book5, book6, book7];
 
     final sortedHp = hp.sorted(
-      (a, b) => a.publishDate.compareTo(b.publishDate),
+      (a, b) => b.publishDate.compareTo(a.publishDate),
     );
 
     // Book 인스턴스를 담고 있는 컬렉션에 대해 sort() 를 수행하여 출간일이 신상 순서대로 정렬한다
     expect(
       sortedHp,
       equals([
-        Book(title: '해리포터', comment: '불잔', publishDate: DateTime(2016, 11, 15)),
-        Book(title: '해리포터', comment: '불기', publishDate: DateTime(2018, 1, 1)),
-        Book(title: '해리포터', comment: '혼왕', publishDate: DateTime(2018, 1, 1)),
-        Book(title: '해리포터', comment: '죽성', publishDate: DateTime(2018, 12, 31)),
-        Book(title: '해리포터', comment: '아죄', publishDate: DateTime(2025)),
-        Book(title: '해리포터', comment: '마돌', publishDate: book.publishDate),
         Book(title: '해리포터', comment: '비방', publishDate: book2.publishDate),
+        Book(title: '해리포터', comment: '마돌', publishDate: book.publishDate),
+        Book(title: '해리포터', comment: '아죄', publishDate: DateTime(2025)),
+        Book(title: '해리포터', comment: '죽성', publishDate: DateTime(2018, 12, 31)),
+        Book(title: '해리포터', comment: '혼왕', publishDate: DateTime(2018, 1, 1)),
+        Book(title: '해리포터', comment: '불기', publishDate: DateTime(2018, 1, 1)),
+        Book(title: '해리포터', comment: '불잔', publishDate: DateTime(2016, 11, 15)),
       ]),
     );
   });
