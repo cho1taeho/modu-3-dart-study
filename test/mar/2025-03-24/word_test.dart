@@ -1,7 +1,7 @@
 import 'package:test/expect.dart';
 import 'package:test/scaffolding.dart';
 
-import '../../../playground/mar/2025-03-24/ward.dart';
+import '../../../playground/mar/2025-03-24/word.dart';
 
 void main() {
   test('모음', () {
