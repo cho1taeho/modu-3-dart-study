@@ -8,7 +8,7 @@ class TodoDataSourceImpl implements TodoDataSource {
   @override
   Future<Todo> getTodo() async {
     final todoFile = File(r'playground/mar/2025-03-31/todo/todo.txt');
-    final jsonString = await todoFile.readAsStringSync();
+    final jsonString = await todoFile.readAsString();
     final jsonMap = jsonDecode(jsonString);
 
     return Todo.fromJson(jsonMap);
