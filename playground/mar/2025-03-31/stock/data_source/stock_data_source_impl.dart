@@ -14,15 +14,23 @@ class StockDataSourceImpl implements StockDataSource {
 
     final result = <StockListing>[];
 
-    for (final data in dataStock) {
-      if (data.isNotEmpty) {
-        result.add(StockListing.fromCsv(data));
+    for (final datas in dataStock) {
+      final data = datas.split(',');
+
+      if (data[1] != '') {
+        result.add(StockListing.fromCsv(datas));
       } else {
         cnt++;
       }
-      ;
     }
 
     return result;
   }
+}
+
+void main() async {
+  final stockData = StockDataSourceImpl();
+  final stock = await stockData.getStockListings();
+  print('총 개수: ${stock.length}');
+  print('스킵된 줄 수: ${StockDataSourceImpl.cnt}');
 }
