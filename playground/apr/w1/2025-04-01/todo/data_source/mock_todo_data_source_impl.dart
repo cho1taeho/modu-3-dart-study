@@ -40,11 +40,11 @@ class MockTodoDataSourceImpl implements TodoDataSource {
 
   @override
   Future<List<Map<String, dynamic>>> getCompletedTodos() async {
-    return await _todoList.where((e) => e['completed'] == true).toList();
+    return _todoList.where((e) => e['completed'] == true).toList();
   }
 
   @override
   Future<List<Map<String, dynamic>>> getTodos() async {
-    return await _todoList;
+    return _todoList;
   }
 }

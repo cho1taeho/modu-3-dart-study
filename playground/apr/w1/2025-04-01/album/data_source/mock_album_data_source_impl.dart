@@ -278,6 +278,6 @@ class MockAlbumDataSourceImpl implements AlbumDataSource {
 
   @override
   Future<List<Map<String, dynamic>>> getAlbums({int? limit}) async {
-    return await _albumData;
+    return _albumData;
   }
 }

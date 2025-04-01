@@ -206,6 +206,6 @@ class MockUserDataSourceImpl implements UserDataSource {
 
   @override
   Future<List<Map<String, dynamic>>> getUsers() async {
-    return await _userData;
+    return _userData;
   }
 }

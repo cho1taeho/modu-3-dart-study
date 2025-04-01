@@ -11,20 +11,20 @@ class UserRepositoryImpl implements UserRepository {
 
   @override
   Future<List<User>> getUsers() async {
-    final userRepository = await _userDataSource.getUsers();
+    final userData = await _userDataSource.getUsers();
 
-    return userRepository.map((e) => User.fromJson(e)).toList();
+    return userData.map((e) => User.fromJson(e)).toList();
   }
 
   @override
   Future<List<User>> getUsersTop10ByUserName() async {
-    final userRepository = await _userDataSource.getUsers();
-    final UserTop10Repository =
-        userRepository
+    final userData = await _userDataSource.getUsers();
+    final userTop10Repository =
+        userData
             .sorted((a, b) => a['username'].compareTo(b['username']))
             .take(10)
             .toList();
 
-    return UserTop10Repository.map((e) => User.fromJson(e)).toList();
+    return userTop10Repository.map((e) => User.fromJson(e)).toList();
   }
 }
