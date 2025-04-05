@@ -4,8 +4,6 @@ import 'dart:io';
 import 'package:http/http.dart' as http;
 import 'package:modu_3_dart_study/apr/w1/2025-04-03/movie/data_source/movie_data_source.dart';
 
-import '../movie.dart';
-
 class MovieDataSourceImpl implements MovieDataSource {
   final http.Client client;
 
@@ -23,8 +21,7 @@ class MovieDataSourceImpl implements MovieDataSource {
 
     if (response.statusCode == 200) {
       final data = jsonDecode(utf8.decode(response.bodyBytes));
-      final movie = Movie.fromJson(data);
-      return [movie.toJson()];
+      return data;
     } else {
       throw Exception('exciption');
     }
