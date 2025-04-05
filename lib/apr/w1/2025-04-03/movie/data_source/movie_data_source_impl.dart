@@ -11,10 +11,10 @@ class MovieDataSourceImpl implements MovieDataSource {
 
   MovieDataSourceImpl(this.client);
 
-  static String movieData =
+  String movieData =
       File(r'lib/apr/w1/2025-04-03/movie/movie.txt').readAsStringSync();
 
-  static const String apiUrl =
+  String apiUrl =
       'https://api.themoviedb.org/3/movie/157336?api_key=db62ad7757737f4cf7101493c0bccdf2';
 
   @override
