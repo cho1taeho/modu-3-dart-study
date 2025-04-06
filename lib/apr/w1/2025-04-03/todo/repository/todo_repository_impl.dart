@@ -4,19 +4,17 @@ import 'package:modu_3_dart_study/apr/w1/2025-04-03/todo/repository/todo_reposit
 import '../data_source/todo_data_source.dart';
 
 class TodoRepositoryImpl implements TodoRepository {
-  final TodoDataSource todoDataSource;
+  final TodoDataSource _todoDataSource;
 
-  TodoRepositoryImpl(this.todoDataSource);
+  TodoRepositoryImpl(this._todoDataSource);
 
   @override
   Future<Todo> getTodo(int id) {
-    return todoDataSource.getTodo(id);
+    return _todoDataSource.getTodo(id);
   }
 
   @override
   Future<List<Todo>> getTodos() {
-    return todoDataSource.getTodos();
+    return _todoDataSource.getTodos();
   }
-
-
 }

@@ -39,4 +39,18 @@ class Movie {
   @override
   int get hashCode =>
       id.hashCode ^ title.hashCode ^ overview.hashCode ^ releaseDate.hashCode;
+
+  Movie copyWith({
+    int? id,
+    String? title,
+    String? overview,
+    String? releaseDate,
+  }) {
+    return Movie(
+      id: id ?? this.id,
+      title: title ?? this.title,
+      overview: overview ?? this.overview,
+      releaseDate: releaseDate ?? this.releaseDate,
+    );
+  }
 }
